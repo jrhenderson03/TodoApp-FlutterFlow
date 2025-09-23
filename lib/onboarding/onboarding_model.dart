@@ -15,11 +15,11 @@ class OnboardingModel extends FlutterFlowModel<OnboardingWidget> {
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
   String? Function(BuildContext, String?)? nameTextControllerValidator;
+  DateTime? datePicked;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
-  DateTime? datePicked;
 
   @override
   void initState(BuildContext context) {}
