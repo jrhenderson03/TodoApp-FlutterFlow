@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/user.schema.json",
+  "title": "User Document",
+  "type": "object",
+  "properties": {
+    "uid": {
+      "type": "string",
+      "description": "Unique Firebase Authentication user ID"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "photo_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "birthdate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Birthdate stored as a timestamp"
+    },
+    "birthday": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Alternate birthday field"
+    },
+    "location": {
+      "type": "string"
+    },
+    "created_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of account creation"
+    }
+  },
+  "required": ["uid", "display_name", "email", "created_time"]
+}
