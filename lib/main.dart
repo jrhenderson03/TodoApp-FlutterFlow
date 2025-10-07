@@ -68,7 +68,7 @@ class _MyAppState extends State<MyApp> {
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
-    userStream = toDoAppFirebaseUserStream()
+    userStream = toDoAppRevisedFirebaseUserStream()
       ..listen((user) {
         _appStateNotifier.update(user);
       });
@@ -95,7 +95,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'To-Do App',
+      title: 'ToDo-App-Revised',
       scrollBehavior: MyAppScrollBehavior(),
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,

@@ -5,8 +5,8 @@ import '../base_auth_user_provider.dart';
 
 export '../base_auth_user_provider.dart';
 
-class ToDoAppFirebaseUser extends BaseAuthUser {
-  ToDoAppFirebaseUser(this.user);
+class ToDoAppRevisedFirebaseUser extends BaseAuthUser {
+  ToDoAppRevisedFirebaseUser(this.user);
   User? user;
   bool get loggedIn => user != null;
 
@@ -58,17 +58,18 @@ class ToDoAppFirebaseUser extends BaseAuthUser {
 
   static BaseAuthUser fromUserCredential(UserCredential userCredential) =>
       fromFirebaseUser(userCredential.user);
-  static BaseAuthUser fromFirebaseUser(User? user) => ToDoAppFirebaseUser(user);
+  static BaseAuthUser fromFirebaseUser(User? user) =>
+      ToDoAppRevisedFirebaseUser(user);
 }
 
-Stream<BaseAuthUser> toDoAppFirebaseUserStream() => FirebaseAuth.instance
+Stream<BaseAuthUser> toDoAppRevisedFirebaseUserStream() => FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
             ? TimerStream(true, const Duration(seconds: 1))
             : Stream.value(user))
         .map<BaseAuthUser>(
       (user) {
-        currentUser = ToDoAppFirebaseUser(user);
+        currentUser = ToDoAppRevisedFirebaseUser(user);
         return currentUser!;
       },
     );
